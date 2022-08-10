@@ -1,0 +1,2 @@
+#!/bin/bash
+find shell/permissions -type d -exec chmod 711 {} \; 

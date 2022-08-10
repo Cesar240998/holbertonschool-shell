@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+#Listing processes
+touch /var/run/myscript.pid
+echo $$ >> /var/run/myscript.pid
+deleteandkill(){ sudo rm /var/run/myscript.pid; exit; }
+
+trap 'echo "Y U no love me?!"' SIGINT
+trap 'echo "I hate the kill command"; deleteandkill' SIGTERM
+trap 'deleteandkill' SIGQUIT
+
+while true
+do
+	echo "To infinity and beyond"
+	sleep 2
+done
